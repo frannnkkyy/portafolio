@@ -1,5 +1,0 @@
-.fitlink-screen{position:relative; width:100%; aspect-ratio:870/1807; overflow:hidden; background:#000;}
-  .fitlink-screen img.slide{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; background:#000; opacity:0; transition:opacity .45s ease;}
-  .fitlink-screen img.slide.active{opacity:1;}
-  .fitlink-screen .dots{bottom:12px; padding:4px 7px; border-radius:10px; background:rgba(0,0,0,.48); backdrop-filter:blur(4px);}
-  @media(max-width:520px){.feature-media .stenovy-showcase,.feature-media .frame-cork{width:min(230px,82vw)}.feature-media .frame-arcade,.feature-media .frame-cafe,.feature-media .frame-notebook,.feature-media .frame-cork,.feature-media .stenovy-showcase,.feature-media .browser-frame{border-radius:9px}}

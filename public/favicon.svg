@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Portafolio de Carlos Constantino">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3d8fe0" />
+      <stop offset="1" stop-color="#0b2a56" />
+    </linearGradient>
+    <linearGradient id="folder" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe985" />
+      <stop offset=".45" stop-color="#ffcc33" />
+      <stop offset=".46" stop-color="#f5b800" />
+      <stop offset="1" stop-color="#ffdb5c" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)" />
+  <rect x=".75" y=".75" width="62.5" height="62.5" rx="13.25" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5" />
+  <path
+    d="M12 23.5c0-1.9 1.6-3.5 3.5-3.5h9.2l3.2 3.2h17.6c1.9 0 3.5 1.6 3.5 3.5v20c0 1.9-1.6 3.5-3.5 3.5h-30c-1.9 0-3.5-1.6-3.5-3.5V23.5Z"
+    fill="url(#folder)"
+    stroke="#c98a10"
+    stroke-width=".8"
+  />
+  <path d="M20 31h24" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round" />
+  <path d="M20 37h16" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-linecap="round" />
+</svg>
