@@ -1,0 +1,39 @@
+/* ================= skills ================= */
+  .skills-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .skills-block{margin-bottom:26px;}
+  .skills-block:last-child{margin-bottom:0;}
+  .block-label{font-size:0.72rem; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.07em; color:var(--aqua-3); margin-bottom:12px; display:block; font-weight:700;}
+  .chip-grid{display:flex; flex-wrap:wrap; gap:9px;}
+  .chip{
+    display:flex; align-items:center; gap:8px;
+    background:var(--brushed-1); border:1px solid var(--brushed-2);
+    padding:7px 12px; border-radius:8px; font-size:0.82rem;
+  }
+  .chip.soft{background:linear-gradient(180deg,#eaf5ff,#dbeeff); border-color:#bfe1ff; color:#0c5fa8; font-weight:600; font-size:0.78rem;}
+  .chip .sw{
+    width:22px; height:22px; border-radius:6px; display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono',monospace; font-size:0.6rem; font-weight:700; color:#fff; flex-shrink:0;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+  .list-rows{list-style:none;}
+  .list-rows li{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:10px 12px; font-size:0.87rem; border-radius:6px;
+  }
+  .list-rows li:nth-child(odd){background:var(--brushed-1);}
+  .list-rows .cy, .list-rows .lvl{font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--aqua-3); white-space:nowrap; font-weight:600;}
+
+  /* ---- skill proficiency bars ---- */
+  .skill-bars{display:flex; flex-direction:column; gap:12px;}
+  .skill-bar-top{display:flex; justify-content:space-between; font-size:0.82rem; color:var(--ink); margin-bottom:4px;}
+  .skill-pct{font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--aqua-3); font-weight:600;}
+  .skill-bar-track{
+    height:10px; border-radius:999px; background:var(--brushed-2);
+    box-shadow:inset 0 1px 2px rgba(0,0,0,0.15); overflow:hidden;
+  }
+  .skill-bar-fill{
+    height:100%; width:0%; border-radius:999px;
+    background:linear-gradient(180deg,#8fd0ff,#1e8fe1 50%,#0c6ac9 51%,#2489e5);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+    transition:width 1.1s cubic-bezier(.2,.8,.2,1);
+  }

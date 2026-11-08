@@ -1,0 +1,11 @@
+/* Global styles are split by responsibility to keep the original macOS visual language
+   while making the React components easier to maintain. */
+@import './base.css';
+@import './chrome.css';
+@import './layout.css';
+@import './layout-skills.css';
+@import './layout-contact.css';
+@import './chrome-cv.css';
+@import './chrome-overlays.css';
+@import './projects.css';
+@import './custom.css';

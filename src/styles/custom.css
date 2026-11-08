@@ -1,0 +1,157 @@
+/* ================= additions for the React rebuild ================= */
+
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+.skip-link{
+  position:fixed; left:16px; top:-80px; z-index:200;
+  padding:10px 16px; border-radius:8px; background:var(--paper); color:var(--ink);
+  font:700 .85rem/1.2 var(--font-sf); box-shadow:0 10px 24px rgba(10,20,45,.28);
+  transition:top .18s ease;
+}
+.skip-link:focus{top:16px;}
+
+/* Traffic lights can be used inside any pane bar, not only the window titlebar */
+.traffic.inline{position:static; transform:none; display:flex; gap:8px; flex:0 0 auto;}
+
+/* Keep reading order sensible on project cards */
+.feature-media{min-width:0;}
+.feature-text{min-width:0;}
+
+/* Project details */
+.project-highlights{
+  list-style:none; margin:12px 0 14px; display:grid; gap:6px;
+}
+.project-highlights li{
+  position:relative; padding-left:20px; color:var(--ink-soft);
+  font-size:.86rem; line-height:1.45;
+}
+.project-highlights li::before{
+  content:'✓'; position:absolute; left:0; top:0; color:var(--aqua-2); font-weight:800;
+}
+
+.project-links{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
+.project-link{
+  display:inline-flex; align-items:center; gap:6px; min-height:34px; padding:7px 12px;
+  border:1px solid var(--brushed-2); border-radius:7px;
+  background:linear-gradient(#fff,#eef0f3); color:var(--ink);
+  box-shadow:inset 0 1px #fff,0 1px 3px rgba(20,30,50,.08);
+  font:600 .76rem/1.2 var(--font-sf);
+  transition:border-color .15s ease, background .15s ease, transform .15s ease;
+}
+.project-link:hover{border-color:#8abddd; background:#f8fcff; transform:translateY(-1px);}
+.project-link:focus-visible{outline:3px solid rgba(30,143,225,.25); outline-offset:2px;}
+.project-link.primary{
+  border-color:#0a5aa0; color:#fff; text-shadow:0 -1px 1px rgba(0,0,0,.25);
+  background:linear-gradient(180deg,#8fd0ff,#1e8fe1 50%,#0c6ac9 51%,#2489e5);
+}
+.project-link.primary:hover{border-color:#0a5aa0; background:linear-gradient(180deg,#9ad8ff,#2b98e6 50%,#0f70d1 51%,#2f93ec);}
+.project-link .arrow{font-size:.82em; opacity:.75;}
+
+/* Carousel images can opt into cover for screenshots that fill the frame better */
+.browser-shot img.slide.fit-cover,
+.arcade-screen img.slide.fit-cover,
+.stenovy-screen img.slide.fit-cover,
+.fitlink-screen img.slide.fit-cover{object-fit:cover;}
+
+/* Designed fallback while a project folder has no screenshots yet */
+.preview-placeholder{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:7px; overflow:hidden;
+  padding:24px; text-align:center; color:#fff;
+  background:
+    radial-gradient(circle at 18% 12%, var(--ph-a, #7fd4ff), transparent 46%),
+    radial-gradient(circle at 82% 84%, var(--ph-b, #1e8fe1), transparent 52%),
+    linear-gradient(145deg, #15243b, #0b1524);
+}
+.preview-placeholder::before{
+  content:''; position:absolute; inset:0; pointer-events:none; opacity:.22;
+  background-image:
+    linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px);
+  background-size:34px 34px;
+  mask-image:radial-gradient(circle at 50% 50%, #000, transparent 78%);
+  -webkit-mask-image:radial-gradient(circle at 50% 50%, #000, transparent 78%);
+}
+.preview-placeholder > *{position:relative; z-index:1;}
+.preview-placeholder-icon{
+  display:grid; place-items:center; width:64px; height:64px; border-radius:18px;
+  background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.32);
+  box-shadow:inset 0 1px rgba(255,255,255,.4), 0 12px 28px rgba(0,0,0,.22);
+  font-size:2rem; backdrop-filter:blur(6px);
+}
+.preview-placeholder strong{font:800 1.15rem/1.2 var(--font-sf); letter-spacing:-.01em;}
+.preview-placeholder span{
+  font:700 .68rem/1.2 'JetBrains Mono',monospace; text-transform:uppercase;
+  letter-spacing:.09em; opacity:.82;
+}
+.preview-placeholder small{
+  margin-top:4px; font:500 .68rem/1.3 'JetBrains Mono',monospace; opacity:.68;
+}
+.preview-placeholder.phone{padding:16px; gap:5px;}
+.preview-placeholder.phone .preview-placeholder-icon{width:48px; height:48px; border-radius:14px; font-size:1.45rem;}
+.preview-placeholder.phone strong{font-size:.92rem;}
+.preview-placeholder.phone span{font-size:.6rem;}
+.preview-placeholder.phone small{font-size:.58rem;}
+
+/* "How I work" reuses the achievement cards from the legacy layout */
+.principle-card{display:flex; align-items:flex-start; gap:9px; min-width:0; padding:11px 12px; border:1px solid var(--brushed-2); border-radius:8px; background:var(--brushed-1); color:var(--ink); font-size:.82rem; line-height:1.4}
+.principle-card::before{content:'✓'; display:grid; place-items:center; flex:0 0 19px; width:19px; height:19px; margin-top:1px; border-radius:50%; background:#e7f7eb; color:#16812e; font:800 .7rem var(--font-sf)}
+.principle-grid{display:grid; grid-template-columns:1fr; gap:8px}
+
+/* Small labels above project groups */
+.project-group-label{
+  display:flex; align-items:center; gap:8px; margin:4px 0 2px;
+  font:700 .72rem/1.2 'JetBrains Mono',monospace; text-transform:uppercase;
+  letter-spacing:.09em; color:var(--aqua-3);
+}
+
+/* Footer inside the OS window */
+.site-footer{padding:0 5vw 34px;}
+.site-footer .pane-content{
+  display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
+  padding:16px 20px; color:var(--ink-soft); font-size:.78rem;
+}
+.site-footer a{color:var(--aqua-3); font-weight:700;}
+.site-footer a:hover{text-decoration:underline;}
+.site-footer .footer-links{display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
+@media (max-width:620px){.site-footer .pane-content{flex-direction:column; align-items:flex-start;}}
+
+/* Contact block */
+.contact-heading{font-size:clamp(1.6rem,4vw,2.3rem); margin-bottom:10px;}
+.contact-note{margin-top:14px; color:var(--ink-soft); font-size:.8rem;}
+
+/* Spotlight items are buttons in the React version */
+.spotlight-item{
+  width:100%; border:0; background:transparent; text-align:left;
+  font-family:var(--font-sf); cursor:pointer;
+}
+.spotlight-item .si-text{min-width:0;}
+.spotlight-item .si-title{display:block; font-weight:600; line-height:1.25;}
+.spotlight-item .si-sub{display:block;}
+.spotlight-item .si-arrow{margin-left:auto; opacity:.45; font-size:.8rem;}
+.spotlight-item.active .si-arrow,.spotlight-item:hover .si-arrow{opacity:.9;}
+
+/* CV viewer buttons */
+.cv-tab{cursor:pointer;}
+.cv-close{cursor:pointer;}
+.cv-close:hover{background:#f1f3f5;}
+
+/* Body state while a modal is open */
+body.modal-open{overflow:hidden;}
+
+/* Dock links are anchors in the React version */
+.dock-item{text-decoration:none;}
+
+/* Mobile spacing for the projects heading */
+@media (max-width:700px){
+  .projects-heading-row{display:block;}
+  .projects-heading-row .tech-pulse{margin:16px auto 0;}
+}
+
+/* Keep the content from touching the fixed dock on small screens */
+@media (max-width:820px){
+  body{padding-bottom:96px;}
+}
