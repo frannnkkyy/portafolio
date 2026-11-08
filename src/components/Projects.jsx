@@ -39,159 +39,75 @@ function Placeholder({ project, phone = false }) {
   );
 }
 
-function BrowserFrame({ project, carousel }) {
-  const style = { '--shot-aspect': project.aspect };
-
+function ProjectWindow({ project, children }) {
   return (
     <div className="browser-frame">
       <div className="browser-bar">
         <TrafficLights inline />
         <div className="browser-url">{project.url}</div>
       </div>
-      <div className="browser-shot carousel" style={style} {...carousel.handlers}>
-        {project.images.length ? (
-          <Slides project={project} index={carousel.index} />
-        ) : (
-          <Placeholder project={project} />
-        )}
-        <CarouselDots
-          count={project.images.length}
-          index={carousel.index}
-          onSelect={carousel.go}
-        />
-      </div>
+      {children}
     </div>
   );
 }
 
-function NotebookFrame({ project, carousel }) {
+function ProjectScreenshots({ project, carousel, className = '', showDots = true }) {
   const style = { '--shot-aspect': project.aspect };
 
   return (
-    <div className="frame-notebook">
-      <div className="project-pane-bar">
-        <TrafficLights inline />
-        <span className="project-pane-title">{project.url}</span>
-      </div>
-      <div className="notebook-spiral" aria-hidden="true" />
-      <div className="notebook-screen carousel" style={style} {...carousel.handlers}>
-        {project.images.length ? (
-          <Slides project={project} index={carousel.index} />
-        ) : (
-          <Placeholder project={project} />
-        )}
-        <CarouselDots
-          count={project.images.length}
-          index={carousel.index}
-          onSelect={carousel.go}
-        />
-      </div>
-    </div>
-  );
-}
-
-function ArcadeFrame({ project, carousel }) {
-  const t = useTranslate();
-  const style = { '--shot-aspect': project.aspect };
-  const playLink = project.links?.[0];
-
-  return (
-    <div className="frame-arcade">
-      <div className="project-pane-bar">
-        <TrafficLights inline />
-        <span className="project-pane-title">{project.url}</span>
-      </div>
-      <div className="arcade-top" aria-hidden="true">
-        <span className="arcade-label">JUMPIE.APP</span>
-        <span className="arcade-dot" />
-      </div>
-      <div className="arcade-screen carousel" style={style} {...carousel.handlers}>
+    <div
+      className={`browser-shot carousel${className ? ` ${className}` : ''}`}
+      style={style}
+      {...carousel.handlers}
+    >
+      {project.images.length ? (
         <Slides project={project} index={carousel.index} />
-        <div className="arcade-scanlines" aria-hidden="true" />
-        <div className="arcade-vignette" aria-hidden="true" />
-      </div>
-      <div className="arcade-bottom">
-        <CarouselDots
-          className="arcade-dots"
-          count={project.images.length}
-          index={carousel.index}
-          onSelect={carousel.go}
-        />
-        {playLink ? (
-          <a className="btn arcade-play" href={playLink.href} target="_blank" rel="noopener noreferrer">
-            ▶ {t(ui.projects.play).toUpperCase()}
-          </a>
-        ) : null}
-      </div>
-    </div>
-  );
-}
-
-function TabletFrame({ project, carousel }) {
-  const style = { '--shot-aspect': project.aspect };
-
-  return (
-    <div className="frame-cafe">
-      <div className="project-pane-bar">
-        <TrafficLights inline />
-        <span className="project-pane-title">{project.url}</span>
-      </div>
-      <div className="cafe-screen carousel" style={style} {...carousel.handlers}>
-        {project.images.length ? (
-          <Slides project={project} index={carousel.index} />
-        ) : (
-          <Placeholder project={project} />
-        )}
+      ) : (
+        <Placeholder project={project} phone={project.frame === 'phone'} />
+      )}
+      {showDots ? (
         <CarouselDots
           count={project.images.length}
           index={carousel.index}
           onSelect={carousel.go}
         />
-      </div>
-    </div>
-  );
-}
-
-function PhoneFrame({ project, carousel }) {
-  const style = { '--shot-aspect': project.aspect };
-
-  return (
-    <div className="stenovy-showcase">
-      <div className="project-pane-bar">
-        <TrafficLights inline />
-        <span className="project-pane-title">{project.url}</span>
-      </div>
-      <div className="stenovy-phone">
-        <div className="stenovy-screen carousel" style={style} {...carousel.handlers}>
-          {project.images.length ? (
-            <Slides project={project} index={carousel.index} />
-          ) : (
-            <Placeholder project={project} phone />
-          )}
-          <CarouselDots
-            count={project.images.length}
-            index={carousel.index}
-            onSelect={carousel.go}
-          />
-        </div>
-      </div>
+      ) : null}
     </div>
   );
 }
 
 function ProjectMedia({ project, carousel }) {
-  switch (project.frame) {
-    case 'notebook':
-      return <NotebookFrame project={project} carousel={carousel} />;
-    case 'arcade':
-      return <ArcadeFrame project={project} carousel={carousel} />;
-    case 'tablet':
-      return <TabletFrame project={project} carousel={carousel} />;
-    case 'phone':
-      return <PhoneFrame project={project} carousel={carousel} />;
-    default:
-      return <BrowserFrame project={project} carousel={carousel} />;
-  }
+  const t = useTranslate();
+  const isArcade = project.frame === 'arcade';
+  const screenshotClass = isArcade ? 'arcade-shot' : project.frame === 'phone' ? 'phone-shot' : '';
+  const playLink = isArcade ? project.links?.[0] : null;
+
+  return (
+    <ProjectWindow project={project}>
+      <ProjectScreenshots
+        project={project}
+        carousel={carousel}
+        className={screenshotClass}
+        showDots={!isArcade}
+      />
+      {isArcade ? (
+        <div className="arcade-bottom">
+          <CarouselDots
+            className="arcade-dots"
+            count={project.images.length}
+            index={carousel.index}
+            onSelect={carousel.go}
+          />
+          {playLink ? (
+            <a className="btn arcade-play" href={playLink.href} target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">▶</span>
+              {t(ui.projects.play)}
+            </a>
+          ) : null}
+        </div>
+      ) : null}
+    </ProjectWindow>
+  );
 }
 
 function ProjectCard({ project }) {

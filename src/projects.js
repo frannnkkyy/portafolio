@@ -1,8 +1,7 @@
 import { bi } from './i18n';
 
 /**
- * frame: how the screenshots are presented
- *   browser | notebook | phone | arcade | tablet
+ * frame: browser | phone | arcade
  * images: files inside public/images/projects/<id>/
  */
 export const projects = [
@@ -16,33 +15,37 @@ export const projects = [
     icon: '📊',
     iconGradient: 'linear-gradient(180deg,#c9a8ff,#8a4fd6 50%,#5f2fa8 51%,#9a5fe0)',
     description: bi(
-      'Piloto interno para reunir la captura, validación y consulta de lecturas de agua y electricidad. Tiene accesos por rol, historial por periodo, importación desde Excel y reportes listos para imprimir.',
-      'An internal pilot that brings water and electricity reading capture, validation and lookup into one place. It has role-based access, period history, Excel imports and print-ready reports.'
+      'Durante mis prácticas en Prologis desarrollé una PWA interna para registrar y consultar lecturas de agua y electricidad. Incluye permisos por rol, historial mensual, importación de Excel y reportes imprimibles.',
+      'During my internship at Prologis, I built an internal PWA for entering and reviewing water and electricity readings. It includes role-based access, monthly history, Excel imports and printable reports.'
     ),
     outcome: bi(
-      'Reemplazó el ida y vuelta de hojas sueltas por una sola interfaz para capturar y revisar lecturas.',
-      'It replaced back-and-forth spreadsheets with a single place to capture and review readings.'
+      'Reuní en una sola herramienta tareas que antes se hacían entre varias hojas.',
+      'I brought work that used to be spread across several sheets into one tool.'
     ),
     stack: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind CSS', 'PWA'],
-    frame: 'notebook',
+    frame: 'browser',
     url: 'lecturas-prologis.app',
     aspect: '16 / 9',
     images: [
       {
-        file: 'monthly-reading-capture.png',
-        alt: bi('Captura mensual de lecturas', 'Monthly reading capture'),
+        file: 'client-dashboard.jpg',
+        alt: bi('Panel de consumo para clientes', 'Client utility dashboard'),
       },
       {
-        file: 'admin-role-profile.png',
-        alt: bi('Cuenta con rol de administrador', 'Admin role profile'),
+        file: 'admin-dashboard.jpg',
+        alt: bi('Panel principal de administración', 'Main administration dashboard'),
       },
       {
-        file: 'printable-utility-report.png',
-        alt: bi('Reporte de consumos listo para imprimir', 'Printable utility report'),
+        file: 'monthly-sheets.jpg',
+        alt: bi('Captura de lecturas en hojas mensuales', 'Monthly reading sheets'),
       },
       {
-        file: 'monthly-sheets-qr-workflow.png',
-        alt: bi('Hojas mensuales y flujo de registro', 'Monthly sheets and capture workflow'),
+        file: 'user-admin.jpg',
+        alt: bi('Gestión de usuarios y permisos', 'User and role management'),
+      },
+      {
+        file: 'login.jpg',
+        alt: bi('Inicio de sesión', 'Sign-in screen'),
       },
     ],
     note: bi(
@@ -69,12 +72,12 @@ export const projects = [
     team: bi('Proyecto en equipo', 'Team project'),
     reverse: true,
     description: bi(
-      'Proyecto integrador en equipo para centralizar la consulta de planeaciones, reportes y carga de archivos. El prototipo tiene un frontend en React y una API en Express; por ahora usa autenticación simulada y datos en memoria. Yo me enfoqué en el backend y en conectar los datos con la interfaz.',
-      'A team capstone project to bring planning records, reports and file uploads into one place. The prototype has a React frontend and an Express API; authentication is simulated and data is stored in memory for now. I focused on the backend and connecting its data to the interface.'
+      'Lo hicimos en equipo para consultar planeaciones, cargar archivos y revisar reportes. Yo trabajé principalmente en la API con Express y en conectarla con la interfaz en React. Es un prototipo: el acceso es simulado y los datos no se guardan al cerrar el servidor.',
+      'We built this as a team to browse lesson plans, upload files and view reports. I focused on the Express API and connecting it to the React interface. It is still a prototype: sign-in is simulated and data is lost when the server stops.'
     ),
     outcome: bi(
-      'Quedó un flujo navegable de carga, historial y reportes; la extracción OCR y la persistencia en base de datos siguen pendientes.',
-      'The prototype now has a navigable upload, history and reporting flow; OCR extraction and database persistence are still pending.'
+      'La carga, el historial y los reportes ya se pueden recorrer; OCR y una base de datos quedan pendientes.',
+      'The upload, history and reports can be explored; OCR and database storage are still to come.'
     ),
     stack: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express', 'REST API', 'JavaScript'],
     frame: 'browser',
@@ -116,24 +119,24 @@ export const projects = [
     icon: '⌚',
     iconGradient: 'linear-gradient(180deg,#ffd58f,#febc2e 50%,#c98a10 51%,#ffcc55)',
     description: bi(
-      'Aplicación móvil conectada a una pulsera prototipo con Arduino. Muestra pasos, frecuencia cardiaca, presión y oxígeno en sangre, con gráficas y un historial de mediciones que se sincroniza por Firebase Realtime Database.',
-      'A mobile app connected to an Arduino-based wearable prototype. It shows steps, heart rate, blood pressure and blood oxygen, with charts and a measurement history synced through Firebase Realtime Database.'
+      'Conectamos una app en React Native a una pulsera prototipo con Arduino. La app muestra pasos y mediciones de pulso, presión y oxígeno; Firebase Realtime Database sincroniza los datos y las sesiones anteriores.',
+      'We connected a React Native app to an Arduino wearable prototype. It shows steps, pulse, blood pressure and oxygen readings; Firebase Realtime Database syncs the data and past sessions.'
     ),
     outcome: bi(
-      'El prototipo unió la app, los sensores y la base de datos en una sola demo funcional.',
-      'The prototype brought the app, the sensors and the database together in one working demo.'
+      'La demo conecta el dispositivo, Firebase y las pantallas de la app.',
+      'The demo ties the device, Firebase and the app screens together.'
     ),
     stack: ['React Native', 'Expo', 'Expo Router', 'TypeScript', 'Firebase Realtime Database', 'Arduino'],
     frame: 'phone',
     url: 'fitlink.mobile',
     aspect: '870 / 1807',
-    images: [],
-    placeholder: {
-      icon: '⌚',
-      label: bi('React Native · Arduino · Firebase', 'React Native · Arduino · Firebase'),
-      note: bi('Vista de la app', 'App preview'),
-      colors: ['#a6ff00', '#0b6b3a'],
-    },
+    images: [
+      { file: 'home.jpg', alt: bi('Inicio de sesión de FitLink', 'FitLink sign-in screen') },
+      { file: 'profile.jpg', alt: bi('Perfil y datos personales', 'Profile and personal details') },
+      { file: 'information.jpg', alt: bi('Opciones de la aplicación', 'Application settings') },
+      { file: 'route.jpg', alt: bi('Seguimiento de una ruta', 'Route tracking screen') },
+      { file: 'dashboard.jpg', alt: bi('Resumen de actividad', 'Activity overview') },
+    ],
     links: [
       {
         label: bi('Ver repositorio', 'View repository'),
@@ -153,21 +156,37 @@ export const projects = [
     iconGradient: 'linear-gradient(180deg,#ffe985,#ffcc33 50%,#f5b800 51%,#ffdb5c)',
     reverse: true,
     description: bi(
-      'Editor de fotos que corre completo en el navegador. Se elige una imagen o se toma una foto, luego el estilo, la variante, el formato y el ajuste final. Son 15 estilos, todos dibujados con Canvas, sin subir la foto a ningún servidor y sin guardar nada al recargar.',
-      'A photo editor that runs entirely in the browser. Pick an image or take a photo, then choose a style, a variant, an aspect ratio and the final crop. There are 15 styles, all rendered with Canvas, with no upload and nothing saved after a reload.'
+      'Hice Yetpaw para editar fotos desde el celular o la computadora, sin subirlas a un servidor. Eliges una foto, pruebas estilos y ajustas el formato antes de guardar. Canvas genera el resultado; al recargar, las imágenes y los cambios desaparecen.',
+      'I made Yetpaw so you can edit photos on a phone or computer without uploading them. Choose a photo, try a style and adjust the format before saving. Canvas renders the result; photos and edits are cleared when you reload.'
     ),
     outcome: bi(
-      '15 estilos, 12 disponibles para video y todo el procesamiento del lado del cliente.',
-      '15 styles, 12 available for video, and all processing kept on the client.'
+      'Hay 15 estilos para fotos; 12 también funcionan con video.',
+      'There are 15 styles for photos; 12 also work with video.'
     ),
     stack: ['React', 'Vite', 'JavaScript', 'Canvas API', 'PWA', 'Service Worker'],
-    frame: 'browser',
+    frame: 'phone',
     url: 'yetpaw.vercel.app',
-    aspect: '4 / 3',
+    aspect: '870 / 1807',
     images: [
       {
-        file: 'home.png',
+        file: 'home.jpg',
         alt: bi('Pantalla inicial de Yetpaw', 'Yetpaw start screen'),
+      },
+      {
+        file: 'styles.jpg',
+        alt: bi('Selección de estilos de edición', 'Editing style selection'),
+      },
+      {
+        file: 'variants.jpg',
+        alt: bi('Selección de variantes', 'Style variant selection'),
+      },
+      {
+        file: 'formats.jpg',
+        alt: bi('Formatos disponibles para la imagen', 'Available image formats'),
+      },
+      {
+        file: 'editor.jpg',
+        alt: bi('Edición y vista previa del resultado', 'Editor and result preview'),
       },
     ],
     links: [
@@ -191,24 +210,23 @@ export const projects = [
     icon: '⭐',
     iconGradient: 'linear-gradient(180deg,#8fd0ff,#1e8fe1 50%,#0c6ac9 51%,#2489e5)',
     description: bi(
-      'Aplicación móvil para registrar asistencia con códigos QR. Incluye grupos, credenciales, avisos y vistas distintas para docentes y administración, con Firebase sincronizando los datos.',
-      'A mobile app for tracking attendance with QR codes. It includes groups, student IDs, announcements and separate views for teachers and staff, with Firebase keeping data in sync.'
+      'Stenovy es una app escolar hecha con Cordova. Tiene accesos para docentes y dirección, además de pantallas para grupos, asistencia con QR y avisos. Firebase sincroniza la información.',
+      'Stenovy is a school app built with Cordova. It has teacher and staff access, plus screens for groups, QR attendance and announcements. Firebase syncs the information.'
     ),
     outcome: bi(
-      'El prototipo permitió probar el registro por QR junto con la gestión de grupos y avisos.',
-      'The prototype was used to test QR check-in alongside group and announcement management.'
+      'El flujo reúne asistencia, grupos y avisos en la misma app.',
+      'The app brings attendance, groups and announcements into one place.'
     ),
     stack: ['Apache Cordova', 'JavaScript', 'HTML5', 'CSS3', 'Firebase'],
     frame: 'phone',
     url: 'stenovy.mobile',
     aspect: '833 / 1807',
-    images: [],
-    placeholder: {
-      icon: '⭐',
-      label: bi('Apache Cordova · Firebase', 'Apache Cordova · Firebase'),
-      note: bi('Capturas en recuperación', 'Screenshots being recovered'),
-      colors: ['#7fd4ff', '#1e8fe1'],
-    },
+    images: [
+      { file: 'roles.jpg', alt: bi('Selección de acceso para docentes o dirección', 'Teacher or staff sign-in choices') },
+      { file: 'dashboard.jpg', alt: bi('Panel principal de Stenovy', 'Stenovy dashboard') },
+      { file: 'groups.jpg', alt: bi('Grupos y asistencia', 'Groups and attendance') },
+      { file: 'announcements.jpg', alt: bi('Formulario para publicar un aviso', 'Create an announcement') },
+    ],
     links: [
       {
         label: bi('Ver repositorio', 'View repository'),
@@ -226,12 +244,12 @@ export const projects = [
     iconGradient: 'linear-gradient(180deg,#a8f08a,#4fbf3a 50%,#2f8f22 51%,#5cd045)',
     reverse: true,
     description: bi(
-      'Plataformero 2D donde la velocidad sube con cada ronda. Diseñé la mecánica, los estados de partida, el puntaje y la versión web en Godot. Se juega directo en el navegador.',
-      'A 2D platformer where the speed goes up every round. I designed the mechanics, game states, scoring and the web build in Godot. You can play it right in the browser.'
+      'Hice un plataformero 2D en Godot donde cada ronda va más rápido. Programé las mecánicas, los estados de la partida y el puntaje; también preparé la versión para jugar desde el navegador.',
+      'I made a 2D platformer in Godot where each round gets faster. I built the game mechanics, states and scoring, then prepared a version that runs in the browser.'
     ),
     outcome: bi(
-      'Mi primer juego terminado y publicado, de principio a fin.',
-      'My first game finished and published, start to finish.'
+      'Fue mi primer juego terminado y publicado.',
+      'It was the first game I finished and published.'
     ),
     stack: ['Godot Engine', 'GDScript', 'Pixel Art'],
     frame: 'arcade',
@@ -268,15 +286,15 @@ export const projects = [
     icon: '🌳',
     iconGradient: 'linear-gradient(180deg,#8ee69a,#28c840 50%,#0f9c2c 51%,#37cf4e)',
     description: bi(
-      'Sitio web para un café y bistro: menú digital, platillos, información y contacto. Lo rehíce después para ordenar los assets, quitar código viejo y dejar una estructura más fácil de mantener.',
-      'A website for a café and bistro: digital menu, dishes, info and contact. I rebuilt it later to organize the assets, remove old code and leave a structure that is easier to maintain.'
+      'Sitio adaptable para un café y bistro, con menú, platillos, información y contacto. Después ordené el código y quité ejemplos de backend que ya no se usaban.',
+      'A responsive site for a café and bistro, with its menu, dishes, details and contact information. I later organized the code and removed backend examples the site no longer used.'
     ),
     outcome: bi(
-      'Fue mi primer proyecto web completo y después lo reorganicé para publicarlo en el portafolio.',
-      'It was my first complete website, and I later reorganized it to publish it in my portfolio.'
+      'Fue mi primer sitio completo; después volví para dejarlo más fácil de mantener.',
+      'It was my first complete website. I came back later to make it easier to maintain.'
     ),
     stack: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
-    frame: 'tablet',
+    frame: 'browser',
     url: 'encinos.cafe',
     aspect: '16 / 10',
     images: [
